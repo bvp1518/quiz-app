@@ -6,13 +6,23 @@ export default function QuestionTimer({timeout, onTimeout}){
   
 
   useEffect(() => {
-      setTimeout(onTimeout, timeout);
+    console.log('SETTING TIMEOUT')
+     const timer = setTimeout(onTimeout, timeout);
+
+     return () => {
+        clearTimeout(timer);
+     };
   },[timeout,onTimeout]);
 
     useEffect(() => {
-        setInterval (() => {
+        console.log('SETTING INTERVAL')
+       const interval= setInterval (() => {
             setRemainingTime(prevRemainingTime => prevRemainingTime - 100);
             },100);
+
+            return () => {
+                clearInterval(interval);
+            };
                 },[]);
 
 
