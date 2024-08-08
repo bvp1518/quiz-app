@@ -25,8 +25,6 @@ export default function QuestionTimer({timeout, onTimeout, mode}){
             };
                 },[]);
 
-
-
     return (
      <progress 
      id="question-time"
